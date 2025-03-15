@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data>
+        <record id="view_report_pos_order_pivot_pprc" model="ir.ui.view">
+            <field name="name">report.pos.order.pprc</field>
+            <field name="model">report.pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_report_pos_order_pivot"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_qty']" position="after">
+                    <field name="cost_price" type="measure"/>
+                    <field name="cost_price_total" type="measure"/>
+                    <field name="sale_price" type="measure"/>
+                    <field name="sale_price_total" type="measure"/>
+                </xpath>
+                <xpath expr="//field[@name='price_total']" position="after">
+                    <field name="average_price" type="measure"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_stock_quant_tree_editable_inherit" model="ir.ui.view">
+            <field name="name">stock.quant.tree.editable.inherit</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.view_stock_quant_tree_editable"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='inventory_quantity_auto_apply']" position="after">
+                    <field name="pc_bulto"/>
+                    <field name="pc_package"/>
+                    <field name="pck_bulto"/>
+                </xpath>
+            </field>
+        </record>
+<!--        colocar campos despues de standard_price en product.product_template_only_form_view los campos son-->
+<!--        x_pacbulto = fields.Char(string='pacbulto', store=True)-->
+<!--    x_pcpackage = fields.Char(string='pcpackage', store=True)-->
+<!--    x_pcsbulto = fields.Char(string='pcsbulto', store=True)-->
+        <record id="view_product_template_only_form_view_inherit" model="ir.ui.view">
+            <field name="name">product.template.only.form.view.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='categ_id']" position="after">
+                    <field name="x_pacbulto" string="pacbulto"/>
+                    <field name="x_pcpackage" string="pcpackage"/>
+                    <field name="x_pcsbulto" string="pcsbulto"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

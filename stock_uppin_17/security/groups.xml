@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="0">
+        <!-- Grupos de Stock -->
+        <record id="group_basico_stock" model="res.groups">
+            <field name="name">Básico Stock</field>
+        </record>
+        <record id="group_medio_stock" model="res.groups">
+            <field name="name">Medio Stock</field>
+        </record>
+        <record id="group_alto_stock" model="res.groups">
+            <field name="name">Alto Stock</field>
+        </record>
+        <record id="group_gerencia_stock" model="res.groups">
+            <field name="name">Gerencia Stock</field>
+        </record>
+        <record id="group_gerencia_sale" model="res.groups">
+            <field name="name">Gerencia Ventas</field>
+        </record>
+    </data>
+</odoo>

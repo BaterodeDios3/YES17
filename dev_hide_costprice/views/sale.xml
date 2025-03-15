@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+    <record id="form_sale_dev_hide_costprice" model="ir.ui.view">
+        <field name="name">form_sale_dev_hide_costprice_</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']//tree//field[@name='purchase_price']" position="attributes">
+                <attribute name="groups">dev_hide_costprice.show_cost_price_everywhere</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']//tree//field[@name='margin']" position="attributes">
+                <attribute name="groups">dev_hide_costprice.show_cost_price_everywhere</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']//tree//field[@name='margin_percent']" position="attributes">
+                <attribute name="groups">dev_hide_costprice.show_cost_price_everywhere</attribute>
+            </xpath>
+            <xpath expr="//label[@for='margin']" position="attributes">
+                <attribute name="groups">dev_hide_costprice.show_cost_price_everywhere</attribute>
+            </xpath>
+            <xpath expr="//div[@class='text-nowrap']" position="attributes">
+                <attribute name="groups">dev_hide_costprice.show_cost_price_everywhere</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

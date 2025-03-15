@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="point_of_sale.ProductInfoPopup">
+        <!-- Usamos t-jquery para seleccionar las filas que contienen "Total Cost" y "Total Margin" -->
+        <t t-jquery="tr:has(td:contains('Total Cost'))" t-operation="replace">
+            <t t-if="showCost"> <!-- Verificamos si showCost es verdadero -->
+                <tr>
+                    <td>Total Cost:</td>
+                    <td t-esc="orderCostCurrency" class="table-value"/>
+                </tr>
+                <tr>
+                    <td>Total Margin:</td>
+                    <td class="table-value">
+                        <t t-esc="orderMarginCurrency"/> (<t t-esc="orderMarginPercent"/>%)
+                    </td>
+                </tr>
+            </t>
+            <t t-if="!showCost"> <!-- Si showCost es falso, no mostramos nada -->
+                <tr>
+                    <td colspan="2">Costo y márgenes ocultos</td>
+                </tr>
+            </t>
+        </t>
+    </t>
+</templates>
