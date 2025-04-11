@@ -5,13 +5,17 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
-            <xpath expr="//div/field[@name='pricelist_id']" position="replace">
+            <xpath expr="//div/field[@name='pricelist_id']" position="before">
                 <field name="cannot_edit_pricelist" invisible="1" />
-                <field name="pricelist_id" options="{'no_open':True,'no_create': True}" readonly="state in ['cancel', 'sale'] or cannot_edit_pricelist"/>
             </xpath>
-            <xpath expr="//field/tree/field[@name='price_unit']" position="replace">
+            <xpath expr="//div/field[@name='pricelist_id']" position="attributes">
+                <attribute name="readonly">state in ['cancel', 'sale'] or cannot_edit_pricelist</attribute>
+            </xpath>
+            <xpath expr="//field/tree/field[@name='price_unit']" position="before">
                 <field name="cannot_edit_pricelist" optional="hide"/>
-                <field name="price_unit" readonly="cannot_edit_pricelist"/>
+            </xpath>
+            <xpath expr="//field/tree/field[@name='price_unit']" position="attributes">
+                <attribute name="readonly">cannot_edit_pricelist</attribute>
             </xpath>
         </field>
     </record>
